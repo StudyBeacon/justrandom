@@ -12,5 +12,6 @@ noBtn.addEventListener("mouseover", () => {
 });
 
 yesBtn.addEventListener("click", () => {
-  alert("Yay! ❤️ I knew you'd say YES!");
+  window.location.href = "love.html"; // go to your special page
 });
+
