@@ -3,32 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <title>My Valentine</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
-      background-color: #fff0f5;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
       text-align: center;
-      font-family: Arial, sans-serif;
-      margin-top: 100px;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      margin: 0;
     }
+
     h1 {
-      color: #d6336c;
+      color: #fff;
       font-size: 48px;
+      margin-top: 100px;
+      animation: glow 2s ease-in-out infinite alternate;
     }
+
     p {
       font-size: 22px;
-      color: #333;
+      color: #fff;
+      margin-top: 20px;
+      animation: fadeIn 3s ease-in-out;
     }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff4d6d; }
+      to { text-shadow: 0 0 20px #ff4d6d, 0 0 30px #ff4d6d; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .heart {
-      font-size: 100px;
+      position: absolute;
       color: #ff4d6d;
+      font-size: 30px;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-200px); opacity: 0.7; }
+      100% { transform: translateY(-400px); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="heart">❤️</div>
-  <h1>Happy Valentine’s Day!</h1>
-  <p>तिमी मेरो संसार हौ 💕<br>(You are my world)</p>
+  <h1>Happy Valentine’s Day ❤️</h1>
+  <p>You make my world brighter every single day.</p>
   <p>Even from miles away, my heart is always with you.</p>
+
+  <script>
+    // Generate floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = window.innerHeight + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 800);
+  </script>
 </body>
 </html>
