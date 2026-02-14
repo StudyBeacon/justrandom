@@ -52,7 +52,15 @@
   </style>
 </head>
 <body>
-  <h1>Happy Valentine’s Day ❤️</h1>
+  <h1>Happy Valentine’s Day Jharna ❤️</h1>
+  <p>Wishing you a day filled with love, joy, and sweet surprises.</p>
+
+  <!-- Background music -->
+  <audio id="bg-music" loop>
+    <source src="assets/song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
     // Generate floating hearts
     function createHeart() {
@@ -67,8 +75,15 @@
         heart.remove();
       }, 6000);
     }
-
     setInterval(createHeart, 800);
+
+    // Play background music when page loads
+    window.onload = () => {
+      const music = document.getElementById("bg-music");
+      music.play().catch(() => {
+        console.log("Autoplay blocked, will play after user interaction.");
+      });
+    };
   </script>
 </body>
 </html>
